@@ -79,3 +79,20 @@ The trained Random Forest model is saved using Joblib:
 
 ```bash
 fraud_detection_model.pkl
+```
+This allows the model to be reused without retraining.
+
+---
+
+## What I Learned from This Project
+
+Through this project, I learned why accuracy alone is misleading in fraud detection problems. Since fraudulent transactions represent only a very small fraction of total transactions, a model can achieve high accuracy by predicting every transaction as legitimate while still failing to detect fraud. This makes precision, recall, and F1-score far more meaningful for evaluating real-world performance.
+
+I also gained a clear understanding of Random Forest as an ensemble learning algorithm. Instead of relying on a single model, Random Forest builds multiple decision trees and combines their predictions to produce more stable and accurate results. This approach reduces overfitting and improves generalization compared to individual models.
+
+The concept of ensemble learning became clearer through implementation. By combining multiple weak or moderate learners, ensemble methods achieve better predictive power than standalone models. Random Forest is a practical example of this idea, using bagging and random feature selection to improve performance.
+
+I learned the role of the `n_estimators` parameter, which controls the number of decision trees used in the Random Forest. Increasing this value generally improves performance and stability, but also increases training time and computational cost.
+
+Finally, I understood the importance of SMOTE (Synthetic Minority Over-sampling Technique) in handling imbalanced datasets. SMOTE works by generating synthetic samples for the minority class instead of duplicating existing ones, helping the model learn meaningful patterns from fraudulent transactions and improving recall without causing severe overfitting.
+
